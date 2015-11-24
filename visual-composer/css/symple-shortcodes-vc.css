@@ -1,0 +1,13 @@
+.ss-vc-icon {
+	display:block;
+	width: 28px !important;
+	height: 28px !important;
+	line-height: 28px !important;
+	background:#000 !important;
+	border-radius: 6px;
+	text-align: center;
+}
+.ss-vc-icon:before {
+	font-size: 16px;
+	color: #fff;
+}

@@ -1,0 +1,6 @@
+i.symple-shortcodes-icon {
+	background-image: url('symple-shortcodes.png');
+}
+body .mce-window .mce-container-body.mce-abs-layout {
+	overflow-y: hidden;
+}
