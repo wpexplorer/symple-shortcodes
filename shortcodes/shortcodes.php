@@ -182,7 +182,7 @@ function symple_bullets_shortcode( $atts, $content = null ) {
 
 	// Extract and parse attributes
 	extract( shortcode_atts( array(
-		'style'	=> ''
+		'style'	=> 'check'
 	),
 	$atts ) );
 
@@ -874,7 +874,7 @@ add_shortcode( 'symple_divider', 'symple_divider_shortcode' );
 
 
 // Recent News -------------------------------------------------------------------------- >
-function symple_news_shortcode($atts) {
+function symple_news_shortcode( $atts ) {
 	
 	// Extract and parse attributes
 	extract( shortcode_atts( array(
@@ -979,7 +979,7 @@ function symple_news_shortcode($atts) {
 
 						// Title
 						$output .= '<header class="symple-recent-news-entry-title">';
-							$output .= '<'. $heading .' class="symple-recent-news-entry-title-heading"><a href="'. $url .'" title="'. $post_title .'">'. $post_title .'</a></'. $heading .'>';
+							$output .= '<'. $heading .' class="symple-recent-news-entry-title-heading"><a href="'. esc_url( $url ) .'" title="'. esc_attr( $post_title ) .'">'. $post_title .'</a></'. $heading .'>';
 						$output .= '</header><!-- .symple-recent-news-entry-title -->';
 						
 						// Excerpt
@@ -990,7 +990,7 @@ function symple_news_shortcode($atts) {
 								$output .= $custom_excerpt;
 							}
 							if ( $read_more == 'true' && ( $post_excerpt || $custom_excerpt ) ) { 
-								$output .= '<a href="'. $url .'" title="'. $post_title .'" class="symple-recent-news-entry-readmore">'. $read_more_text .' &rarr;</a>';
+								$output .= '<a href="'. esc_url( $url ) .'" title="'. esc_attr( $post_title ) .'" class="symple-recent-news-entry-readmore">'. $read_more_text .' &rarr;</a>';
 							}
 						$output .= '</div><!-- .symple-recent-news-entry-excerpt -->';
 					
@@ -1021,7 +1021,7 @@ function symple_news_shortcode($atts) {
 add_shortcode( 'symple_news', 'symple_news_shortcode' );
 
 // Recent Posts -------------------------------------------------------------------------- >
-function symple_posts_grid_shortcode($atts) {
+function symple_posts_grid_shortcode( $atts ) {
 	
 	// Extract and parse attributes
 	extract( shortcode_atts( array(
@@ -1144,14 +1144,14 @@ function symple_posts_grid_shortcode($atts) {
 					$output .= '<div class="symple-recent-posts-entry-media">';
 					
 						if ( $thumbnail_link == 'none' ) {
-							$output .= '<img src="'. $featured_img .'" alt="'. $post_title .'" />';
+							$output .= '<img src="'. esc_url( $featured_img_url ) .'" alt="'. $post_title .'" />';
 						} elseif ( $thumbnail_link == 'lightbox' ) {
-							$output .= '<a href="'. $featured_img_url .'" title="'. $post_title .'" class="symple-recent-posts-entry-img symple-shortcodes-lightbox">';
-								$output .= '<img src="'. $featured_img .'" alt="'. $post_title .'" />';
+							$output .= '<a href="'. esc_url( $featured_img_url ) .'" title="'. esc_attr( $post_title ) .'" class="symple-recent-posts-entry-img symple-shortcodes-lightbox">';
+								$output .= '<img src="'. esc_url( $featured_img_url ) .'" alt="'. esc_attr( $post_title ) .'" />';
 							$output .= '</a><!-- .symple-recent-posts-entry-img -->';
 						} else {
-							$output .= '<a href="'. $url .'" title="'. $post_title .'" class="symple-recent-posts-entry-img">';
-								$output .= '<img src="'. $featured_img .'" alt="'. $post_title .'" />';
+							$output .= '<a href="'. esc_url( $url ) .'" title="'. esc_attr( $post_title ) .'" class="symple-recent-posts-entry-img">';
+								$output .= '<img src="'. esc_url( $featured_img ) .'" alt="'. esc_attr( $post_title ) .'" />';
 							$output .= '</a><!-- .symple-recent-posts-entry-img -->';
 						}
 						
@@ -1166,7 +1166,7 @@ function symple_posts_grid_shortcode($atts) {
 						// Title
 						if ( $title == 'true' ) {
 							$output .= '<header class="symple-recent-posts-entry-heading">';
-								$output .= '<h3 class="symple-recent-posts-entry-title"><a href="'. $url .'" title="'. $post_title .'">'. $post_title .'</a></h3>';
+								$output .= '<h3 class="symple-recent-posts-entry-title"><a href="'. esc_url( $url ) .'" title="'. esc_attr( $post_title ) .'">'. $post_title .'</a></h3>';
 							$output .= '</header><!-- .symple-recent-posts-entry-heading -->';
 						}
 						
@@ -1179,7 +1179,7 @@ function symple_posts_grid_shortcode($atts) {
 									$output .= $custom_excerpt;
 								}
 								if ( $read_more == 'true' && ( $post_excerpt || $custom_excerpt ) ) { 
-									$output .= '<span class="symple-recent-posts-entry-readmore-wrap"><a href="'. $url .'" title="'. $post_title .'" class="symple-recent-posts-entry-readmore">'. $read_more_text .' &rarr;</a></span>';
+									$output .= '<span class="symple-recent-posts-entry-readmore-wrap"><a href="'. $url .'" title="'. esc_attr( $post_title ) .'" class="symple-recent-posts-entry-readmore">'. $read_more_text .' &rarr;</a></span>';
 								}
 							$output .= ' </div><!-- /symple-recent-posts-entry-excerpt -->';
 						}
@@ -1410,8 +1410,9 @@ function symple_carousel_shortcode( $atts ) {
 				$post_id          = $post->ID;
 				$featured_img_url = wp_get_attachment_url( get_post_thumbnail_id( $post_id ) );
 				$featured_img     = wp_get_attachment_url( get_post_thumbnail_id( $post_id ) );
-				$url              = get_permalink($post_id);
-				$post_title       = get_the_title($post_id);
+				$url              = get_permalink( $post_id) ;
+				$url              = esc_url( $url );
+				$post_title       = get_the_title( $post_id );
 				
 				// Load scripts
 				if ( $thumbnail_link == 'lightbox' ) {
@@ -1423,6 +1424,7 @@ function symple_carousel_shortcode( $atts ) {
 				if ( $img_crop == 'true' ) {
 					$thumbnail_hard_crop = $img_height == '9999' ? false : true;
 					$featured_img = symple_shortcodes_img_resize( $featured_img_url, $img_width, $img_height, $thumbnail_hard_crop );
+					$featured_img = esc_url( $featured_img );
 				}
 	
 				// Carousel item start
@@ -1433,19 +1435,19 @@ function symple_carousel_shortcode( $atts ) {
 						$output .= '<div class="symple-caroufredsel-entry-media">';
 						
 							if ( $thumbnail_link == 'none' ) {
-								$output .= '<img src="'. $featured_img .'" alt="'. $post_title .'" />';
+								$output .= '<img src="'. $featured_img .'" alt="'. esc_attr( $post_title ) .'" />';
 							} elseif ( $thumbnail_link == 'lightbox' ) {
-								$output .= '<a href="'. $featured_img_url .'" title="'. $post_title .'" class="symple-caroufredsel-entry-img symple-shortcodes-lightbox">';
-									$output .= '<img src="'. $featured_img .'" alt="'. $post_title .'" />';
+								$output .= '<a href="'. $featured_img_url .'" title="'. esc_attr( $post_title ) .'" class="symple-caroufredsel-entry-img symple-shortcodes-lightbox">';
+									$output .= '<img src="'. $featured_img .'" alt="'. esc_attr( $post_title ) .'" />';
 								$output .= '</a><!-- .symple-caroufredsel-entry-img -->';
 							} else {
-								$output .= '<a href="'. $url .'" title="'. $post_title .'" class="symple-caroufredsel-entry-img">';
-									$output .= '<img src="'. $featured_img .'" alt="'. $post_title .'" />';
+								$output .= '<a href="'. $url .'" title="'. esc_attr( $post_title ) .'" class="symple-caroufredsel-entry-img">';
+									$output .= '<img src="'. $featured_img .'" alt="'. esc_attr( $post_title ) .'" />';
 								$output .= '</a><!-- .symple-caroufredsel-entry-img -->';
 							}
 							
 							if ( $title == 'true' && $post_title ) {
-								$output .= '<div class="symple-caroufredsel-entry-title"><a href="'. $url .'" title="'. $post_title .'">'. $post_title .'</a></div>';
+								$output .= '<div class="symple-caroufredsel-entry-title"><a href="'. $url .'" title="'. esc_attr( $post_title ) .'">'. $post_title .'</a></div>';
 							}
 							
 						$output .= '</div>';
@@ -1482,7 +1484,7 @@ function symple_carousel_shortcode( $atts ) {
 add_shortcode("symple_carousel", "symple_carousel_shortcode");
 	
 // FlexSlider -------------------------------------------------------------------------- >
-function symple_flexslider_shortcode($atts) {
+function symple_flexslider_shortcode( $atts ) {
 	
 	// Extract and parse attributes
 	extract( shortcode_atts( array(
@@ -1607,8 +1609,8 @@ function symple_flexslider_shortcode($atts) {
 				$post_id          = $post->ID;
 				$featured_img_url = wp_get_attachment_url( get_post_thumbnail_id( $post_id ) );
 				$featured_img     = wp_get_attachment_url( get_post_thumbnail_id( $post_id ) );
-				$url              = get_permalink($post_id);
-				$post_title       = get_the_title($post_id);
+				$url              = esc_url( get_permalink( $post_id ) );
+				$post_title       = get_the_title( $post_id );
 				
 				// Load scripts
 				if ( $thumbnail_link == 'lightbox' ) {
@@ -1620,6 +1622,7 @@ function symple_flexslider_shortcode($atts) {
 				if ( $img_crop == 'true' ) {
 					$thumbnail_hard_crop = $img_height == '9999' ? false : true;
 					$featured_img = symple_shortcodes_img_resize( $featured_img_url, $img_width, $img_height, $thumbnail_hard_crop );
+					$featured_img = esc_url( $featured_img );
 				}
 				
 				// Media Wrap
@@ -1630,19 +1633,19 @@ function symple_flexslider_shortcode($atts) {
 							$output .= '<div class="symple-flexslider-entry-media">';
 							
 								if ( $thumbnail_link == 'none' ) {
-									$output .= '<img src="'. $featured_img .'" alt="'. $post_title .'" />';
+									$output .= '<img src="'. $featured_img .'" alt="'. esc_attr( $post_title ) .'" />';
 								} elseif ( $thumbnail_link == 'lightbox' ) {
-									$output .= '<a href="'. $featured_img_url .'" title="'. $post_title .'" class="symple-flexslider-entry-img symple-shortcodes-lightbox">';
-										$output .= '<img src="'. $featured_img .'" alt="'. $post_title .'" />';
+									$output .= '<a href="'. $featured_img_url .'" title="'. esc_attr( $post_title ) .'" class="symple-flexslider-entry-img symple-shortcodes-lightbox">';
+										$output .= '<img src="'. $featured_img .'" alt="'. esc_attr( $post_title ) .'" />';
 									$output .= '</a><!-- .symple-flexslider-entry-img -->';
 								} else {
-									$output .= '<a href="'. $url .'" title="'. $post_title .'" class="symple-flexslider-entry-img">';
-										$output .= '<img src="'. $featured_img .'" alt="'. $post_title .'" />';
+									$output .= '<a href="'. $url .'" title="'. esc_attr( $post_title ) .'" class="symple-flexslider-entry-img">';
+										$output .= '<img src="'. $featured_img .'" alt="'. esc_attr( $post_title ) .'" />';
 									$output .= '</a><!-- .symple-flexslider-entry-img -->';
 								}
 								
 								if ( $title == 'true' && $post_title ) {
-									$output .= '<div class="symple-flexslider-entry-title"><a href="'. $url .'" title="'. $post_title .'">'. $post_title .'</a></div>';
+									$output .= '<div class="symple-flexslider-entry-title"><a href="'. $url .'" title="'. esc_attr( $post_title ) .'">'. $post_title .'</a></div>';
 								}
 								
 							$output .= '</div>';
@@ -1672,7 +1675,7 @@ function symple_flexslider_shortcode($atts) {
 	return $output; 
 	
 }
-add_shortcode("symple_flexslider", "symple_flexslider_shortcode");
+add_shortcode( 'symple_flexslider', 'symple_flexslider_shortcode' );
 
 // Custom FlexSlider -------------------------------------------------------------------------- >
 function symple_flexslider_custom_shortcode( $atts, $content=null ) {
@@ -1710,18 +1713,18 @@ function symple_flexslider_custom_shortcode( $atts, $content=null ) {
 			$("#'. $unique_flexslider_id .'").imagesLoaded( function() {
 				$(".symple-flexslider-wrap").removeClass("flexslider-loader");
 				$("#'. $unique_flexslider_id .'").flexslider({
-					animation: "'. $animation .'",
-					slideshow: '. $slideshow .',
-					randomize: '. $randomize .',
-					direction: "'. $direction .'",
-					slideshowSpeed: '. $slideshow_speed .',
-					animationSpeed: '. $animation_speed .',
-					controlNav: '. $control_nav .',
-					directionNav: '. $direction_nav .',
-					pauseOnHover: '. $pause_on_hover .',
-					smoothHeight: '. $smooth_height .',
-					prevText: \'<i class=fa fa-angle-left"></i>\',
-					nextText: \'<i class="fa fa-angle-right"></i>\'
+					animation      : "'. $animation .'",
+					slideshow      : '. $slideshow .',
+					randomize      : '. $randomize .',
+					direction      : "'. $direction .'",
+					slideshowSpeed : '. $slideshow_speed .',
+					animationSpeed : '. $animation_speed .',
+					controlNav     : '. $control_nav .',
+					directionNav   : '. $direction_nav .',
+					pauseOnHover   : '. $pause_on_hover .',
+					smoothHeight   : '. $smooth_height .',
+					prevText       : \'<i class=fa fa-angle-left"></i>\',
+					nextText       : \'<i class="fa fa-angle-right"></i>\'
 				});
 			});
 		});
@@ -1730,7 +1733,7 @@ function symple_flexslider_custom_shortcode( $atts, $content=null ) {
 	$unique_id = $unique_id ? ' id="'. $unique_id .'"' : null;
 
 	// Main wrapper div
-	$output .= '<div class="symple-flexslider-wrap clr flexslider-loader flexslider-style-'. $style .'"'. $unique_id  .'>';
+	$output .= '<div class="symple-flexslider-wrap clr flexslider-loader flexslider-style-'. esc_attr( $style ) .'"'. $unique_id  .'>';
 
 		// Flex slider start
 		$output .= '<div id="'. $unique_flexslider_id .'" class="symple-flexslider flexslider"><ul class="slides">';					
@@ -1748,7 +1751,7 @@ function symple_flexslider_custom_shortcode( $atts, $content=null ) {
 	return $output; 
 	
 }
-add_shortcode("symple_flexslider_custom", "symple_flexslider_custom_shortcode");
+add_shortcode( 'symple_flexslider_custom', 'symple_flexslider_custom_shortcode' );
 
 function symple_slide_shortcode( $atts, $content = null ) {
 
@@ -1762,19 +1765,19 @@ function symple_slide_shortcode( $atts, $content = null ) {
 add_shortcode( 'symple_flex_slide', 'symple_slide_shortcode' );
 
 // Carousel Custom -------------------------------------------------------------------------- >
-function symple_carousel_custom_shortcode($atts, $content = null) {
+function symple_carousel_custom_shortcode( $atts, $content = null ) {
 	
 	// Extract and parse attributes
 	extract( shortcode_atts( array(
-			'unique_id' => '',
-			'item_width' => '400',
-			'min_slides' => '1',
-			'max_slides' => '3',
-			'animation' => 'CSS',
-			'auto_play' => 'false',
-			'pager' => 'true',
-			'arrows' => 'true',
-		), $atts ) );
+		'unique_id'  => '',
+		'item_width' => '400',
+		'min_slides' => '1',
+		'max_slides' => '3',
+		'animation'  => 'CSS',
+		'auto_play'  => 'false',
+		'pager'      => 'true',
+		'arrows'     => 'true',
+	), $atts ) );
 		
 	$output = '';
 	
@@ -1793,12 +1796,12 @@ function symple_carousel_custom_shortcode($atts, $content = null) {
 				$(document).ready(function(){
 					$("#'. $unique_carousel_id .'").carouFredSel({
 						responsive : true,
-						height: "variable",
-						width: "100%",
-						auto: '. $auto_play .',
-						swipe: {
-							onTouch: true,
-							onMouse: true
+						height     : "variable",
+						width      : "100%",
+						auto       : '. $auto_play .',
+						swipe      : {
+							onTouch : true,
+							onMouse : true
 						},';
 						if ( $arrows == 'true' ) {
 							$output .= 'prev : "#prev-'. $rand_num .'",';
@@ -1808,20 +1811,20 @@ function symple_carousel_custom_shortcode($atts, $content = null) {
 							$output .= 'pagination : "#pager-'. $rand_num .'",';
 						}
 						$output .= 'items : {
-							width: '. $item_width .',
-							height: "variable",
-							visible: {
-								min: '. $min_slides .',
-								max: '. $max_slides .'
+							width   : '. $item_width .',
+							height  : "variable",
+							visible : {
+								min : '. $min_slides .',
+								max : '. $max_slides .'
 							}
 						}
 					});
 				});
 				$("#'. $unique_carousel_id .'").imagesLoaded( function() {
 					$(".'. $unique_carousel_id .'-wrap").css( {
-						height: "auto",
-						overflow: "visible",
-						opacity: "1"
+						height   : "auto",
+						overflow : "visible",
+						opacity  : "1"
 					});
 					$("#'. $unique_carousel_id .'").trigger("updateSizes");
 				});
@@ -1867,7 +1870,7 @@ add_shortcode( 'symple_carousel_slide', 'symple_slide_carousel_shortcode' );
 
 
 // Attachments Carousel -------------------------------------------------------------------------- >
-function symple_attachments_carousel_shortcode($atts) {
+function symple_attachments_carousel_shortcode( $atts ) {
 	
 	// Extract and parse attributes
 	extract( shortcode_atts( array(
@@ -1911,12 +1914,12 @@ function symple_attachments_carousel_shortcode($atts) {
 				$(document).ready(function(){
 					$("#'. $unique_carousel_id .'").carouFredSel({
 						responsive : true,
-						height: "variable",
-						width : "100%",
-						auto : '. $auto_play .',
-						swipe : {
-							onTouch: true,
-							onMouse: true
+						height     : "variable",
+						width      : "100%",
+						auto       : '. $auto_play .',
+						swipe      : {
+							onTouch : true,
+							onMouse : true
 						},';
 						if ( $arrows == 'true' ) {
 							$output .= 'prev : "#prev-'. $rand_num .'",';
@@ -1926,8 +1929,8 @@ function symple_attachments_carousel_shortcode($atts) {
 							$output .= 'pagination : "#pager-'. $rand_num .'",';
 						}
 						$output .= 'items : {
-							width : '. $item_width .',
-							height: "variable",
+							width   : '. $item_width .',
+							height  : "variable",
 							visible : {
 								min : '. $min_slides .',
 								max : '. $max_slides .'
@@ -1937,9 +1940,9 @@ function symple_attachments_carousel_shortcode($atts) {
 				});
 				$("#'. $unique_carousel_id .'").imagesLoaded( function() {
 					$(".'. $unique_carousel_id .'-wrap").css( {
-						height: "auto",
-						overflow: "visible",
-						opacity: "1"
+						height   : "auto",
+						overflow : "visible",
+						opacity  : "1"
 					});
 					$("#'. $unique_carousel_id .'").trigger("updateSizes");
 				});
@@ -1987,8 +1990,8 @@ function symple_attachments_carousel_shortcode($atts) {
 			
 				// Attachment VARS
 				$attachment_id		= $attachment->ID ;
-				$attachment_link	= get_post_meta( $attachment_id, '_wp_attachment_url', true );
-				$attachment_img_url	= wp_get_attachment_url( $attachment_id );
+				$attachment_link	= esc_url( get_post_meta( $attachment_id, '_wp_attachment_url', true ) );
+				$attachment_img_url	= esc_url( wp_get_attachment_url( $attachment_id ) );
 				$attachment_img		= wp_get_attachment_url( $attachment_id );
 				$attachment_alt		= get_the_title($attachment_id);
 				$attachment_title	= $attachment->post_title;
@@ -2002,7 +2005,8 @@ function symple_attachments_carousel_shortcode($atts) {
 				// Crop featured images if necessary
 				if ( $img_crop == 'true' ) {
 					$thumbnail_hard_crop = $img_height == '9999' ? false : true;
-					$attachment_img = symple_shortcodes_img_resize( $attachment_img, $img_width, $img_height, $thumbnail_hard_crop );
+					$attachment_img      = symple_shortcodes_img_resize( $attachment_img, $img_width, $img_height, $thumbnail_hard_crop );
+					$attachment_img      = esc_url( $attachment_img );
 				}
 	
 				// Carousel item start
@@ -2012,16 +2016,16 @@ function symple_attachments_carousel_shortcode($atts) {
 					$output .= '<div class="symple-caroufredsel-entry-media">';
 					
 						if ( $thumbnail_link == 'lightbox' ) {
-							$output .= '<a href="'. $attachment_img_url .'" title="'. $attachment_title .'" class="symple-caroufredsel-entry-img symple-shortcodes-lightbox">';
-								$output .= '<img src="'. $attachment_img .'" alt="'. $attachment_alt .'" />';
+							$output .= '<a href="'. $attachment_img_url .'" title="'. esc_attr( $attachment_title ) .'" class="symple-caroufredsel-entry-img symple-shortcodes-lightbox">';
+								$output .= '<img src="'. $attachment_img .'" alt="'. esc_attr( $attachment_alt  ) .'" />';
 							$output .= '</a><!-- .symple-caroufredsel-entry-img -->';
 						} else {
-							$output .= '<img src="'. $attachment_img .'" alt="'. $attachment_alt .'" />';
+							$output .= '<img src="'. $attachment_img .'" alt="'. esc_attr( $attachment_alt ) .'" />';
 						}
 						
 						if ( $title == 'true' && $attachment_title ) {
 							if ( $attachment_link ) {
-							$output .= '<div class="symple-caroufredsel-entry-title"><a href="'. $attachment_link .'" title="'. $attachment_title .'">'. $attachment_title .'</a></div>';
+							$output .= '<div class="symple-caroufredsel-entry-title"><a href="'. $attachment_link .'" title="'. esc_attr( $attachment_title ) .'">'. $attachment_title .'</a></div>';
 							} else {
 								$output .= '<div class="symple-caroufredsel-entry-title">'. $attachment_title .'</div>';
 							}
@@ -2058,7 +2062,7 @@ function symple_attachments_carousel_shortcode($atts) {
 add_shortcode("symple_attachments_carousel", "symple_attachments_carousel_shortcode");
 
 // Attachments / FlexSlider -------------------------------------------------------------------------- >
-function symple_attachments_flexslider_shortcode($atts) {
+function symple_attachments_flexslider_shortcode( $atts ) {
 	
 	// Extract and parse attributes
 	extract( shortcode_atts( array(
@@ -2103,18 +2107,18 @@ function symple_attachments_flexslider_shortcode($atts) {
 				$("#'. $unique_flexslider_id .'").imagesLoaded( function() {
 					$(".symple-flexslider-wrap").removeClass("flexslider-loader");
 					$("#'. $unique_flexslider_id .'").flexslider({
-						animation: "'. $animation .'",
-						slideshow : '. $slideshow .',
-						randomize : '. $randomize .',
-						direction: "'. $direction .'",
-						slideshowSpeed: '. $slideshow_speed .',
-						animationSpeed: '. $animation_speed .',
-						controlNav : '. $control_nav .',
-						directionNav: '. $direction_nav .',
-						pauseOnHover: '. $pause_on_hover .',
-						smoothHeight: '. $smooth_height .',
-						prevText : \'<i class=icon-angle-left"></i>\',
-						nextText : \'<i class="icon-angle-right"></i>\'
+						animation      : "'. $animation .'",
+						slideshow      : '. $slideshow .',
+						randomize      : '. $randomize .',
+						direction      : "'. $direction .'",
+						slideshowSpeed : '. $slideshow_speed .',
+						animationSpeed : '. $animation_speed .',
+						controlNav     : '. $control_nav .',
+						directionNav   : '. $direction_nav .',
+						pauseOnHover   : '. $pause_on_hover .',
+						smoothHeight   : '. $smooth_height .',
+						prevText       : \'<i class=icon-angle-left"></i>\',
+						nextText       : \'<i class="icon-angle-right"></i>\'
 					});
 				});
 			});
@@ -2131,14 +2135,14 @@ function symple_attachments_flexslider_shortcode($atts) {
 	
 	// The Query
 	$attachments = get_posts( array(		
-		'orderby'			=> $order,
-		'order' 			=> $orderby,
-		'post_type' 		=> 'attachment',
-		'post_parent' 		=> $post_parent,
-		'post_mime_type' 	=> 'image',
-		'post_status' 		=> null,
-		'posts_per_page'	=> -1,
-		'post__in' 			=> $post_in,
+		'orderby'        => $order,
+		'order'          => $orderby,
+		'post_type'      => 'attachment',
+		'post_parent'    => $post_parent,
+		'post_mime_type' => 'image',
+		'post_status'    => null,
+		'posts_per_page' => -1,
+		'post__in'       => $post_in,
 	) );
 
 	//Output posts
@@ -2147,7 +2151,7 @@ function symple_attachments_flexslider_shortcode($atts) {
 		$unique_id = $unique_id ? ' id="'. $unique_id .'"' : null;
 	
 		// Main wrapper div
-		$output .= '<div class="symple-flexslider-wrap clr symple-flexslider-attachments flexslider-loader flexslider-style-'. $style .'"'. $unique_id  .'>';
+		$output .= '<div class="symple-flexslider-wrap clr symple-flexslider-attachments flexslider-loader flexslider-style-'. esc_attr( $style ) .'"'. $unique_id  .'>';
 
 			$output .= '<div id="'. $unique_flexslider_id .'" class="symple-flexslider flexslider"><ul class="slides">';
 		
@@ -2156,10 +2160,10 @@ function symple_attachments_flexslider_shortcode($atts) {
 			
 				// Attachment VARS
 				$attachment_id		= $attachment->ID ;
-				$attachment_link	= get_post_meta( $attachment_id, '_wp_attachment_url', true );
-				$attachment_img_url	= wp_get_attachment_url( $attachment_id );
+				$attachment_link	= esc_url( get_post_meta( $attachment_id, '_wp_attachment_url', true ) );
+				$attachment_img_url	= esc_url( wp_get_attachment_url( $attachment_id ) );
 				$attachment_img		= wp_get_attachment_url( $attachment_id );
-				$attachment_alt		= get_the_title($attachment_id);
+				$attachment_alt		= get_the_title( $attachment_id );
 				$attachment_title	= $attachment->post_title;
 				
 				// Load scripts
@@ -2171,7 +2175,8 @@ function symple_attachments_flexslider_shortcode($atts) {
 				// Crop featured images if necessary
 				if ( $img_crop == 'true' ) {
 					$thumbnail_hard_crop = $img_height == '9999' ? false : true;
-					$attachment_img = symple_shortcodes_img_resize( $attachment_img, $img_width, $img_height, $thumbnail_hard_crop );
+					$attachment_img      = symple_shortcodes_img_resize( $attachment_img, $img_width, $img_height, $thumbnail_hard_crop );
+					$attachment_img      = esc_url( $attachment_img );
 				}
 	
 				// Slide item start
@@ -2180,11 +2185,11 @@ function symple_attachments_flexslider_shortcode($atts) {
 						$output .= '<div class="symple-flexslider-entry-media">';
 						
 							if ( $thumbnail_link == 'lightbox' ) {
-								$output .= '<a href="'. $attachment_img_url .'" title="'. $attachment_title .'" class="symple-flexslider-entry-img symple-shortcodes-lightbox">';
-									$output .= '<img src="'. $attachment_img .'" alt="'. $attachment_alt .'" />';
+								$output .= '<a href="'. $attachment_img_url .'" title="'. esc_attr( $attachment_title ) .'" class="symple-flexslider-entry-img symple-shortcodes-lightbox">';
+									$output .= '<img src="'. $attachment_img .'" alt="'. esc_attr( $attachment_alt ) .'" />';
 								$output .= '</a><!-- .symple-flexslider-entry-img -->';
 							} else {
-								$output .= '<img src="'. $attachment_img .'" alt="'. $attachment_alt .'" />';
+								$output .= '<img src="'. $attachment_img .'" alt="'. esc_attr( $attachment_alt ) .'" />';
 							}
 							
 							if ( $title == 'true' && $attachment_title ) {
@@ -2271,7 +2276,7 @@ function symple_icon_shortcode( $atts, $content = null ) {
 	$unique_id = $unique_id ? ' id="'. $unique_id .'"' : null;
 	
 	if ( $url ) {
-		$output .= '<a href="'. esc_url( $url ) .'" title="'. $url_title .'" class="symple-icon symple-icon-'. $style.' symple-icon-'. $size .' symple-icon-float-'. $float .' '. $fade_in_class .'" '. $unique_id . $style_attr .' >';
+		$output .= '<a href="'. $url .'" title="'. $url_title .'" class="symple-icon symple-icon-'. $style.' symple-icon-'. $size .' symple-icon-float-'. $float .' '. $fade_in_class .'" '. $unique_id . $style_attr .' >';
 		$output .= '<span class="'. symple_shortcodes_font_icon_class( $icon ) .'"></span>';
 		$output .= '</a>';
 	} else {
