@@ -35,8 +35,8 @@ if ( ! class_exists( 'SympleShortcodes' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'mce_css' ) );
 
 			// Auto updates
-			require_once( $this->dir_path .'/wp-updates-plugin.php' );
-			new WPUpdatesPluginUpdater_285( 'http://wp-updates.com/api/2/plugin', plugin_basename(__FILE__) );
+			// @todo: Our own updates API coming soon, sorry for the troubles people, but
+			// the wp-updates.com site we were using has gone to shit since it was sold :(
 
 			// Includes (useful functions and classes)
 			require_once( $this->dir_path .'/inc/commons.php' );
