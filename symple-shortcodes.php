@@ -139,7 +139,11 @@ if ( ! class_exists( 'SympleShortcodes' ) ) {
 			wp_register_script( 'symple_toggle', $js_dir . 'symple_toggle.js', 'jquery', '1.0', true );
 			wp_register_script( 'symple_accordion', $js_dir . 'symple_accordion.js', array ( 'jquery', 'jquery-ui-accordion' ), '1.0', true );
 			wp_register_script( 'symple_googlemap', $js_dir . 'symple_googlemap.js', array( 'jquery' ), '1.0', true);
-			wp_register_script( 'symple_googlemap_api', 'https://maps.googleapis.com/maps/api/js?sensor=false', array( 'jquery' ), '1.0', true);
+			$g_api_key = apply_filters( 'symple_shortcodes_google_map_api_key', null );
+			if ( $g_api_key ) {
+				$g_api_key = '?key='. $g_api_key;
+			}
+			wp_register_script( 'symple_googlemap_api', 'https://maps.googleapis.com/maps/api/js'. $g_api_key, array( 'jquery' ), false, true);
 			wp_register_script( 'symple_skillbar', $js_dir . 'symple_skillbar.js', array ( 'jquery' ), '1.0', true );
 			wp_register_script( 'magnific-popup', $js_dir . 'magnific-popup.min.js', array ( 'jquery' ), '0.9.4', true );
 			wp_register_script( 'symple_lightbox', $js_dir . 'symple_lightbox.js', array ( 'jquery', 'magnific-popup' ), '1.0', true );
