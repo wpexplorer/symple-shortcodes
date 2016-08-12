@@ -859,6 +859,7 @@ function symple_shortcode_googlemaps( $atts, $content = null ) {
 	// Check for API key
 	$options = get_option( 'symple_shortcodes' );
 	$api_key = isset( $options['google_maps_api'] ) ? $options['google_maps_api'] : '';
+	$api_key = apply_filters( 'symple_shortcodes_google_map_api_key', $api_key );
 	if ( ! $api_key ) {
 		return '<p>'. __( 'Google map can not be displayed. An API key is required. Please see Settings > Symple Shortcodes for more info.', 'symple' ) .'</p>';
 	}
