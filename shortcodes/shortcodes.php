@@ -1123,13 +1123,13 @@ function symple_posts_grid_shortcode( $atts ) {
 	// Start Tax Query
 	$tax_query = '';
 
-	if ( $taxonomy || $term_slug ) {
+	if ( $taxonomy && $term_slug ) {
 
-		if ( ! taxonomy_exists( $taxonomy ) ) {
+		if ( $taxonomy && ! taxonomy_exists( $taxonomy ) ) {
 			return esc_html__( 'Your selected taxonomy does not exist', 'symple' );
 		}
 
-		if ( ! term_exists( $term_slug, $taxonomy ) ) {
+		if ( $term_slug && ! term_exists( $term_slug, $taxonomy ) ) {
 			return esc_html__( 'Your selected term does not exist', 'symple' );
 		}
 
@@ -1658,7 +1658,7 @@ function symple_flexslider_shortcode( $atts ) {
 	// Start Tax Query
 	$tax_query = '';
 
-	if ( $taxonomy  && $term_slug ) {
+	if ( $taxonomy && $term_slug ) {
 
 		if ( ! taxonomy_exists( $taxonomy ) ) {
 			return __( 'Your selected taxonomy does not exist', 'symple' );
@@ -2259,7 +2259,7 @@ function symple_attachments_flexslider_shortcode( $atts ) {
 	
 	// Get specific ID's
 	$include = null;
-	$post_parent = get_the_ID();
+	$post_parent = get_the_ID(); // Fallback
 	if ( $image_ids ) {
 		$post_parent = null;
 		$post_in = explode( ",",$image_ids );
@@ -2267,19 +2267,19 @@ function symple_attachments_flexslider_shortcode( $atts ) {
 	}
 	
 	// The Query
-	$attachments = new WP_Query( array(
+	$symple_query = new WP_Query( array(
 		'orderby'        => $order,
 		'order'          => $orderby,
 		'post_type'      => 'attachment',
-		'post_parent'    => $post_parent,
-		'post_mime_type' => 'image',
-		'post_status'    => null,
+		'post_parent'    => $post_parent, // Fallback
+		'post_mime_type' => 'image/jpeg,image/gif,image/jpg,image/png',
 		'posts_per_page' => -1,
 		'post__in'       => $post_in,
+		'post_status'    => 'any',
 	) );
 
 	//Output posts
-	if ( $attachments->have_posts() ) :
+	if ( $symple_query->have_posts() ) :
 	
 		$unique_id = $unique_id ? ' id="'. $unique_id .'"' : null;
 	
@@ -2289,15 +2289,15 @@ function symple_attachments_flexslider_shortcode( $atts ) {
 			$output .= '<div id="'. $unique_flexslider_id .'" class="symple-flexslider flexslider"><ul class="slides">';
 		
 			// Loop through attachments
-			while ( $attachments->have_posts() ) : $attachments->the_post();
+			while ( $symple_query->have_posts() ) : $symple_query->the_post();
 			
 				// Attachment VARS
 				$attachment_id		= get_the_ID();
 				$attachment_link	= esc_url( get_post_meta( $attachment_id, '_wp_attachment_url', true ) );
 				$attachment_img_url	= esc_url( wp_get_attachment_url( $attachment_id ) );
 				$attachment_img		= wp_get_attachment_url( $attachment_id );
-				$attachment_alt		= get_the_title( $attachment_id );
-				$attachment_title	= $attachment->post_title;
+				$attachment_alt		= get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
+				$attachment_title	= get_the_title( $attachment_id );
 				
 				// Load scripts
 				if ( $thumbnail_link == 'lightbox' ) {
