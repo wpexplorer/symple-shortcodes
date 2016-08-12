@@ -1,8 +1,9 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Symple Shortcodes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-30 15:46-0800\n"
+"POT-Creation-Date: 2016-08-11 18:24-0700\n"
 "PO-Revision-Date: 2015-06-30 15:46-0800\n"
 "Last-Translator: AJ Clarke <wpexplorer@gmail.com>\n"
 "Language-Team: \n"
@@ -11,88 +12,84 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_nx;_n\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../symple-shortcodes.php:196
-msgid ""
-"Symple Shortcodes includes support for the Visual Composer so you can use "
-"most of the modules via drag and drop."
-msgstr ""
-
-#: ../symple-shortcodes.php:196
-msgid "Visual Composer"
-msgstr ""
-
-#: ../symple-shortcodes.php:196
-msgid "Learn More"
-msgstr ""
-
-#: ../inc/commons.php:25 ../visual-composer/map.php:259
+#: ../inc/commons.php:46 ../visual-composer/map.php:259
 #: ../visual-composer/map.php:438 ../visual-composer/map.php:706
 #: ../visual-composer/map.php:894 ../visual-composer/map.php:1003
-#: ../visual-composer/map.php:1267 ../visual-composer/map.php:1372
-#: ../visual-composer/map.php:1550 ../visual-composer/map.php:1626
+#: ../visual-composer/map.php:1265 ../visual-composer/map.php:1368
+#: ../visual-composer/map.php:1544 ../visual-composer/map.php:1618
 msgid "None"
 msgstr ""
 
-#: ../inc/wp-updates-plugin.php:87
-msgid ""
-"An Unexpected HTTP Error occurred during the API request.</p> <p><a href=\"?"
-"\" onclick=\"document.location.reload(); return false;\">Try again</a>"
-msgstr ""
-
-#: ../inc/wp-updates-plugin.php:91
-msgid "An unknown error occurred"
-msgstr ""
-
-#: ../shortcodes/shortcodes.php:48 ../shortcodes/shortcodes.php:311
+#: ../shortcodes/shortcodes.php:48 ../shortcodes/shortcodes.php:316
 msgid "Visit Site"
 msgstr ""
 
-#: ../shortcodes/shortcodes.php:364
+#: ../shortcodes/shortcodes.php:376
 msgid "Please enter a valid URL and content for your button."
 msgstr ""
 
-#: ../shortcodes/shortcodes.php:606
+#: ../shortcodes/shortcodes.php:634
 msgid ""
 "WPML ICL_LANGUAGE_CODE constant does not exist. If you want to translate "
 "something please first install the WPML plugin."
 msgstr ""
 
-#: ../shortcodes/shortcodes.php:735
+#: ../shortcodes/shortcodes.php:764
 msgid "Sample Heading"
 msgstr ""
 
-#: ../shortcodes/shortcodes.php:823
-msgid "Google map disabled in the customizer do to error."
+#: ../shortcodes/shortcodes.php:863
+msgid ""
+"Google map can not be displayed. An API key is required. Please see "
+"Settings > Symple Shortcodes for more info."
 msgstr ""
 
-#: ../shortcodes/shortcodes.php:894 ../shortcodes/shortcodes.php:1047
+#: ../shortcodes/shortcodes.php:868
+msgid "Google map disabled in the customizer."
+msgstr ""
+
+#: ../shortcodes/shortcodes.php:941 ../shortcodes/shortcodes.php:1103
 msgid "read more"
 msgstr ""
 
-#: ../shortcodes/shortcodes.php:903 ../shortcodes/shortcodes.php:1057
-#: ../shortcodes/shortcodes.php:1289 ../shortcodes/shortcodes.php:1519
+#: ../shortcodes/shortcodes.php:950 ../shortcodes/shortcodes.php:1113
+#: ../shortcodes/shortcodes.php:1380 ../shortcodes/shortcodes.php:1624
 msgid "Sorry the post type you have selected does not exist"
 msgstr ""
 
-#: ../shortcodes/shortcodes.php:911 ../shortcodes/shortcodes.php:1070
-#: ../shortcodes/shortcodes.php:1352 ../shortcodes/shortcodes.php:1558
+#: ../shortcodes/shortcodes.php:958 ../shortcodes/shortcodes.php:1446
+#: ../shortcodes/shortcodes.php:1664
 msgid "Your selected taxonomy does not exist"
 msgstr ""
 
-#: ../shortcodes/shortcodes.php:915 ../shortcodes/shortcodes.php:1071
-#: ../shortcodes/shortcodes.php:1356 ../shortcodes/shortcodes.php:1562
+#: ../shortcodes/shortcodes.php:962 ../shortcodes/shortcodes.php:1450
+#: ../shortcodes/shortcodes.php:1668
 msgid "Your selected term does not exist"
 msgstr ""
 
-#: ../shortcodes/shortcodes.php:1284
+#: ../shortcodes/shortcodes.php:1375
 msgid "Please select only 1 post type."
 msgstr ""
 
-#: ../shortcodes/shortcodes.php:1887
+#: ../shortcodes/shortcodes.php:2021
 msgid "Please select some images for your image carousel."
+msgstr ""
+
+#: ../symple-shortcodes.php:249
+msgid ""
+"Symple Shortcodes includes support for the Visual Composer so you can use "
+"most of the modules via drag and drop."
+msgstr ""
+
+#: ../symple-shortcodes.php:249
+msgid "Visual Composer"
+msgstr ""
+
+#: ../symple-shortcodes.php:249
+msgid "Learn More"
 msgstr ""
 
 #: ../visual-composer/map.php:16
@@ -124,7 +121,7 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: ../visual-composer/map.php:25 ../visual-composer/map.php:1747
+#: ../visual-composer/map.php:25 ../visual-composer/map.php:1737
 msgid "Small"
 msgstr ""
 
@@ -132,7 +129,7 @@ msgstr ""
 msgid "Medium"
 msgstr ""
 
-#: ../visual-composer/map.php:27 ../visual-composer/map.php:1745
+#: ../visual-composer/map.php:27 ../visual-composer/map.php:1735
 msgid "Large"
 msgstr ""
 
@@ -151,9 +148,9 @@ msgstr ""
 #: ../visual-composer/map.php:622 ../visual-composer/map.php:666
 #: ../visual-composer/map.php:719 ../visual-composer/map.php:764
 #: ../visual-composer/map.php:791 ../visual-composer/map.php:919
-#: ../visual-composer/map.php:1073 ../visual-composer/map.php:1156
-#: ../visual-composer/map.php:1312 ../visual-composer/map.php:1473
-#: ../visual-composer/map.php:1595 ../visual-composer/map.php:1728
+#: ../visual-composer/map.php:1071 ../visual-composer/map.php:1154
+#: ../visual-composer/map.php:1308 ../visual-composer/map.php:1467
+#: ../visual-composer/map.php:1587 ../visual-composer/map.php:1718
 msgid "Symple Shortcodes"
 msgstr ""
 
@@ -219,7 +216,7 @@ msgid "Symple Shortcode Button"
 msgstr ""
 
 #: ../visual-composer/map.php:187 ../visual-composer/map.php:680
-#: ../visual-composer/map.php:1787
+#: ../visual-composer/map.php:1777
 msgid "URL"
 msgstr ""
 
@@ -299,17 +296,17 @@ msgstr ""
 
 #: ../visual-composer/map.php:236 ../visual-composer/map.php:320
 #: ../visual-composer/map.php:331 ../visual-composer/map.php:564
-#: ../visual-composer/map.php:1766
+#: ../visual-composer/map.php:1756
 msgid "Left"
 msgstr ""
 
 #: ../visual-composer/map.php:237 ../visual-composer/map.php:321
 #: ../visual-composer/map.php:333 ../visual-composer/map.php:566
-#: ../visual-composer/map.php:1767
+#: ../visual-composer/map.php:1757
 msgid "Right"
 msgstr ""
 
-#: ../visual-composer/map.php:242 ../visual-composer/map.php:1782
+#: ../visual-composer/map.php:242 ../visual-composer/map.php:1772
 msgid "Border Radius"
 msgstr ""
 
@@ -365,7 +362,7 @@ msgid "White"
 msgstr ""
 
 #: ../visual-composer/map.php:304 ../visual-composer/map.php:370
-#: ../visual-composer/map.php:739 ../visual-composer/map.php:1753
+#: ../visual-composer/map.php:739 ../visual-composer/map.php:1743
 msgid "Fade In"
 msgstr ""
 
@@ -377,44 +374,44 @@ msgstr ""
 #: ../visual-composer/map.php:308 ../visual-composer/map.php:374
 #: ../visual-composer/map.php:654 ../visual-composer/map.php:743
 #: ../visual-composer/map.php:962 ../visual-composer/map.php:1013
-#: ../visual-composer/map.php:1036 ../visual-composer/map.php:1045
-#: ../visual-composer/map.php:1061 ../visual-composer/map.php:1144
-#: ../visual-composer/map.php:1234 ../visual-composer/map.php:1249
-#: ../visual-composer/map.php:1258 ../visual-composer/map.php:1277
-#: ../visual-composer/map.php:1300 ../visual-composer/map.php:1382
-#: ../visual-composer/map.php:1405 ../visual-composer/map.php:1423
-#: ../visual-composer/map.php:1431 ../visual-composer/map.php:1441
-#: ../visual-composer/map.php:1450 ../visual-composer/map.php:1524
-#: ../visual-composer/map.php:1533 ../visual-composer/map.php:1542
-#: ../visual-composer/map.php:1560 ../visual-composer/map.php:1583
-#: ../visual-composer/map.php:1636 ../visual-composer/map.php:1659
-#: ../visual-composer/map.php:1677 ../visual-composer/map.php:1685
-#: ../visual-composer/map.php:1695 ../visual-composer/map.php:1704
-#: ../visual-composer/map.php:1756
+#: ../visual-composer/map.php:1034 ../visual-composer/map.php:1043
+#: ../visual-composer/map.php:1059 ../visual-composer/map.php:1142
+#: ../visual-composer/map.php:1232 ../visual-composer/map.php:1247
+#: ../visual-composer/map.php:1256 ../visual-composer/map.php:1275
+#: ../visual-composer/map.php:1296 ../visual-composer/map.php:1378
+#: ../visual-composer/map.php:1399 ../visual-composer/map.php:1417
+#: ../visual-composer/map.php:1425 ../visual-composer/map.php:1435
+#: ../visual-composer/map.php:1444 ../visual-composer/map.php:1518
+#: ../visual-composer/map.php:1527 ../visual-composer/map.php:1536
+#: ../visual-composer/map.php:1554 ../visual-composer/map.php:1575
+#: ../visual-composer/map.php:1628 ../visual-composer/map.php:1649
+#: ../visual-composer/map.php:1667 ../visual-composer/map.php:1675
+#: ../visual-composer/map.php:1685 ../visual-composer/map.php:1694
+#: ../visual-composer/map.php:1746
 msgid "False"
 msgstr ""
 
 #: ../visual-composer/map.php:309 ../visual-composer/map.php:375
 #: ../visual-composer/map.php:653 ../visual-composer/map.php:744
 #: ../visual-composer/map.php:963 ../visual-composer/map.php:1012
-#: ../visual-composer/map.php:1035 ../visual-composer/map.php:1044
-#: ../visual-composer/map.php:1060 ../visual-composer/map.php:1143
-#: ../visual-composer/map.php:1233 ../visual-composer/map.php:1248
-#: ../visual-composer/map.php:1257 ../visual-composer/map.php:1276
-#: ../visual-composer/map.php:1299 ../visual-composer/map.php:1381
-#: ../visual-composer/map.php:1404 ../visual-composer/map.php:1422
-#: ../visual-composer/map.php:1432 ../visual-composer/map.php:1440
-#: ../visual-composer/map.php:1449 ../visual-composer/map.php:1523
-#: ../visual-composer/map.php:1532 ../visual-composer/map.php:1541
-#: ../visual-composer/map.php:1559 ../visual-composer/map.php:1582
-#: ../visual-composer/map.php:1635 ../visual-composer/map.php:1658
-#: ../visual-composer/map.php:1676 ../visual-composer/map.php:1686
-#: ../visual-composer/map.php:1694 ../visual-composer/map.php:1703
-#: ../visual-composer/map.php:1757
+#: ../visual-composer/map.php:1033 ../visual-composer/map.php:1042
+#: ../visual-composer/map.php:1058 ../visual-composer/map.php:1141
+#: ../visual-composer/map.php:1231 ../visual-composer/map.php:1246
+#: ../visual-composer/map.php:1255 ../visual-composer/map.php:1274
+#: ../visual-composer/map.php:1295 ../visual-composer/map.php:1377
+#: ../visual-composer/map.php:1398 ../visual-composer/map.php:1416
+#: ../visual-composer/map.php:1426 ../visual-composer/map.php:1434
+#: ../visual-composer/map.php:1443 ../visual-composer/map.php:1517
+#: ../visual-composer/map.php:1526 ../visual-composer/map.php:1535
+#: ../visual-composer/map.php:1553 ../visual-composer/map.php:1574
+#: ../visual-composer/map.php:1627 ../visual-composer/map.php:1648
+#: ../visual-composer/map.php:1666 ../visual-composer/map.php:1676
+#: ../visual-composer/map.php:1684 ../visual-composer/map.php:1693
+#: ../visual-composer/map.php:1747
 msgid "True"
 msgstr ""
 
-#: ../visual-composer/map.php:314 ../visual-composer/map.php:1762
+#: ../visual-composer/map.php:314 ../visual-composer/map.php:1752
 msgid "Float"
 msgstr ""
 
@@ -423,7 +420,7 @@ msgid "Select a box float."
 msgstr ""
 
 #: ../visual-composer/map.php:319 ../visual-composer/map.php:332
-#: ../visual-composer/map.php:565 ../visual-composer/map.php:1765
+#: ../visual-composer/map.php:565 ../visual-composer/map.php:1755
 msgid "Center"
 msgstr ""
 
@@ -743,48 +740,48 @@ msgstr ""
 msgid "Custom post type grid"
 msgstr ""
 
-#: ../visual-composer/map.php:924 ../visual-composer/map.php:1078
-#: ../visual-composer/map.php:1161 ../visual-composer/map.php:1317
-#: ../visual-composer/map.php:1486 ../visual-composer/map.php:1607
+#: ../visual-composer/map.php:924 ../visual-composer/map.php:1076
+#: ../visual-composer/map.php:1159 ../visual-composer/map.php:1313
+#: ../visual-composer/map.php:1480 ../visual-composer/map.php:1599
 msgid "Unique Id"
 msgstr ""
 
-#: ../visual-composer/map.php:926 ../visual-composer/map.php:1080
-#: ../visual-composer/map.php:1163 ../visual-composer/map.php:1319
-#: ../visual-composer/map.php:1488 ../visual-composer/map.php:1609
+#: ../visual-composer/map.php:926 ../visual-composer/map.php:1078
+#: ../visual-composer/map.php:1161 ../visual-composer/map.php:1315
+#: ../visual-composer/map.php:1482 ../visual-composer/map.php:1601
 msgid "You can enter a unique ID here for styling purposes."
 msgstr ""
 
-#: ../visual-composer/map.php:931 ../visual-composer/map.php:1085
-#: ../visual-composer/map.php:1168 ../visual-composer/map.php:1324
+#: ../visual-composer/map.php:931 ../visual-composer/map.php:1083
+#: ../visual-composer/map.php:1166 ../visual-composer/map.php:1320
 msgid "Post Type"
 msgstr ""
 
-#: ../visual-composer/map.php:938 ../visual-composer/map.php:1097
-#: ../visual-composer/map.php:1175 ../visual-composer/map.php:1331
+#: ../visual-composer/map.php:938 ../visual-composer/map.php:1095
+#: ../visual-composer/map.php:1173 ../visual-composer/map.php:1327
 msgid "Taxonomy"
 msgstr ""
 
-#: ../visual-composer/map.php:945 ../visual-composer/map.php:1103
-#: ../visual-composer/map.php:1182 ../visual-composer/map.php:1338
+#: ../visual-composer/map.php:945 ../visual-composer/map.php:1101
+#: ../visual-composer/map.php:1180 ../visual-composer/map.php:1334
 msgid "Term Slug"
 msgstr ""
 
-#: ../visual-composer/map.php:947 ../visual-composer/map.php:1105
-#: ../visual-composer/map.php:1184 ../visual-composer/map.php:1340
+#: ../visual-composer/map.php:947 ../visual-composer/map.php:1103
+#: ../visual-composer/map.php:1182 ../visual-composer/map.php:1336
 msgid ""
 "Enter the Term slug to get your posts from. This term must be a part of the "
 "taxonomy above. You can find your slug on your taxonomy dashboard. For "
 "regular posts that would be the Categories page."
 msgstr ""
 
-#: ../visual-composer/map.php:951 ../visual-composer/map.php:1109
-#: ../visual-composer/map.php:1188 ../visual-composer/map.php:1344
+#: ../visual-composer/map.php:951 ../visual-composer/map.php:1107
+#: ../visual-composer/map.php:1186 ../visual-composer/map.php:1340
 msgid "Post Count"
 msgstr ""
 
-#: ../visual-composer/map.php:954 ../visual-composer/map.php:1112
-#: ../visual-composer/map.php:1191 ../visual-composer/map.php:1347
+#: ../visual-composer/map.php:954 ../visual-composer/map.php:1110
+#: ../visual-composer/map.php:1189 ../visual-composer/map.php:1343
 msgid "How many items do you wish to show."
 msgstr ""
 
@@ -824,261 +821,261 @@ msgstr ""
 msgid "6"
 msgstr ""
 
-#: ../visual-composer/map.php:982 ../visual-composer/map.php:1116
-#: ../visual-composer/map.php:1195 ../visual-composer/map.php:1351
-#: ../visual-composer/map.php:1492 ../visual-composer/map.php:1613
+#: ../visual-composer/map.php:982 ../visual-composer/map.php:1114
+#: ../visual-composer/map.php:1193 ../visual-composer/map.php:1347
+#: ../visual-composer/map.php:1486 ../visual-composer/map.php:1605
 msgid "Order"
 msgstr ""
 
-#: ../visual-composer/map.php:984 ../visual-composer/map.php:1118
-#: ../visual-composer/map.php:1197 ../visual-composer/map.php:1353
-#: ../visual-composer/map.php:1494 ../visual-composer/map.php:1615
+#: ../visual-composer/map.php:984 ../visual-composer/map.php:1116
+#: ../visual-composer/map.php:1195 ../visual-composer/map.php:1349
+#: ../visual-composer/map.php:1488 ../visual-composer/map.php:1607
 #, php-format
 msgid "Designates the ascending or descending order. More at %s."
 msgstr ""
 
-#: ../visual-composer/map.php:986 ../visual-composer/map.php:1120
-#: ../visual-composer/map.php:1199 ../visual-composer/map.php:1355
-#: ../visual-composer/map.php:1496 ../visual-composer/map.php:1617
+#: ../visual-composer/map.php:986 ../visual-composer/map.php:1118
+#: ../visual-composer/map.php:1197 ../visual-composer/map.php:1351
+#: ../visual-composer/map.php:1490 ../visual-composer/map.php:1609
 msgid "DESC"
 msgstr ""
 
-#: ../visual-composer/map.php:987 ../visual-composer/map.php:1121
-#: ../visual-composer/map.php:1200 ../visual-composer/map.php:1356
-#: ../visual-composer/map.php:1497 ../visual-composer/map.php:1618
+#: ../visual-composer/map.php:987 ../visual-composer/map.php:1119
+#: ../visual-composer/map.php:1198 ../visual-composer/map.php:1352
+#: ../visual-composer/map.php:1491 ../visual-composer/map.php:1610
 msgid "ASC"
 msgstr ""
 
-#: ../visual-composer/map.php:992 ../visual-composer/map.php:1126
-#: ../visual-composer/map.php:1205 ../visual-composer/map.php:1361
+#: ../visual-composer/map.php:992 ../visual-composer/map.php:1124
+#: ../visual-composer/map.php:1203 ../visual-composer/map.php:1357
 msgid "Order By"
 msgstr ""
 
-#: ../visual-composer/map.php:994 ../visual-composer/map.php:1128
-#: ../visual-composer/map.php:1207 ../visual-composer/map.php:1363
+#: ../visual-composer/map.php:994 ../visual-composer/map.php:1126
+#: ../visual-composer/map.php:1205 ../visual-composer/map.php:1359
 #, php-format
 msgid "Select how to sort retrieved posts. More at %s."
 msgstr ""
 
-#: ../visual-composer/map.php:999 ../visual-composer/map.php:1263
-#: ../visual-composer/map.php:1368 ../visual-composer/map.php:1547
-#: ../visual-composer/map.php:1623
+#: ../visual-composer/map.php:999 ../visual-composer/map.php:1261
+#: ../visual-composer/map.php:1364 ../visual-composer/map.php:1541
+#: ../visual-composer/map.php:1615
 msgid "Thumbnail Link"
 msgstr ""
 
-#: ../visual-composer/map.php:1002 ../visual-composer/map.php:1266
-#: ../visual-composer/map.php:1371
+#: ../visual-composer/map.php:1002 ../visual-composer/map.php:1264
+#: ../visual-composer/map.php:1367
 msgid "Post"
 msgstr ""
 
-#: ../visual-composer/map.php:1004 ../visual-composer/map.php:1268
-#: ../visual-composer/map.php:1373 ../visual-composer/map.php:1551
-#: ../visual-composer/map.php:1627
+#: ../visual-composer/map.php:1004 ../visual-composer/map.php:1266
+#: ../visual-composer/map.php:1369 ../visual-composer/map.php:1545
+#: ../visual-composer/map.php:1619
 msgid "Lightbox"
 msgstr ""
 
-#: ../visual-composer/map.php:1009 ../visual-composer/map.php:1273
-#: ../visual-composer/map.php:1378 ../visual-composer/map.php:1556
-#: ../visual-composer/map.php:1632
+#: ../visual-composer/map.php:1009 ../visual-composer/map.php:1271
+#: ../visual-composer/map.php:1374 ../visual-composer/map.php:1550
+#: ../visual-composer/map.php:1624
 msgid "Thumbnail Crop"
 msgstr ""
 
-#: ../visual-composer/map.php:1018 ../visual-composer/map.php:1282
-#: ../visual-composer/map.php:1387 ../visual-composer/map.php:1565
-#: ../visual-composer/map.php:1641
+#: ../visual-composer/map.php:1018 ../visual-composer/map.php:1280
+#: ../visual-composer/map.php:1383 ../visual-composer/map.php:1559
+#: ../visual-composer/map.php:1633
 msgid "Thumbnail Width"
 msgstr ""
 
-#: ../visual-composer/map.php:1021 ../visual-composer/map.php:1285
-#: ../visual-composer/map.php:1390 ../visual-composer/map.php:1568
-#: ../visual-composer/map.php:1644
+#: ../visual-composer/map.php:1020 ../visual-composer/map.php:1282
+#: ../visual-composer/map.php:1385 ../visual-composer/map.php:1561
+#: ../visual-composer/map.php:1635
 msgid "Enter a width in pixels."
 msgstr ""
 
-#: ../visual-composer/map.php:1025 ../visual-composer/map.php:1289
-#: ../visual-composer/map.php:1394 ../visual-composer/map.php:1572
-#: ../visual-composer/map.php:1648
+#: ../visual-composer/map.php:1024 ../visual-composer/map.php:1286
+#: ../visual-composer/map.php:1389 ../visual-composer/map.php:1565
+#: ../visual-composer/map.php:1639
 msgid "Thumbnail Height"
 msgstr ""
 
-#: ../visual-composer/map.php:1028 ../visual-composer/map.php:1292
-#: ../visual-composer/map.php:1397 ../visual-composer/map.php:1575
-#: ../visual-composer/map.php:1651
+#: ../visual-composer/map.php:1026 ../visual-composer/map.php:1288
+#: ../visual-composer/map.php:1391 ../visual-composer/map.php:1567
+#: ../visual-composer/map.php:1641
 msgid ""
 "Enter a height in pixels. Set to \"9999\" to disable vertical cropping and "
 "keep image proportions."
 msgstr ""
 
-#: ../visual-composer/map.php:1032 ../visual-composer/map.php:1296
-#: ../visual-composer/map.php:1401 ../visual-composer/map.php:1579
-#: ../visual-composer/map.php:1655
+#: ../visual-composer/map.php:1030 ../visual-composer/map.php:1292
+#: ../visual-composer/map.php:1395 ../visual-composer/map.php:1571
+#: ../visual-composer/map.php:1645
 msgid "Display Title"
 msgstr ""
 
-#: ../visual-composer/map.php:1041
+#: ../visual-composer/map.php:1039
 msgid "Display Excerpt"
 msgstr ""
 
-#: ../visual-composer/map.php:1050 ../visual-composer/map.php:1133
+#: ../visual-composer/map.php:1048 ../visual-composer/map.php:1131
 msgid "Excerpt Length"
 msgstr ""
 
-#: ../visual-composer/map.php:1053 ../visual-composer/map.php:1136
+#: ../visual-composer/map.php:1051 ../visual-composer/map.php:1134
 msgid "How many words do you want to display for your excerpt?"
 msgstr ""
 
-#: ../visual-composer/map.php:1057 ../visual-composer/map.php:1140
+#: ../visual-composer/map.php:1055 ../visual-composer/map.php:1138
 msgid "Read More Link?"
 msgstr ""
 
-#: ../visual-composer/map.php:1070
+#: ../visual-composer/map.php:1068
 msgid "Recent News"
 msgstr ""
 
-#: ../visual-composer/map.php:1072
+#: ../visual-composer/map.php:1070
 msgid "Recent blog posts"
 msgstr ""
 
-#: ../visual-composer/map.php:1091
+#: ../visual-composer/map.php:1089
 msgid "Header"
 msgstr ""
 
-#: ../visual-composer/map.php:1153
+#: ../visual-composer/map.php:1151
 msgid "Post Carousel"
 msgstr ""
 
-#: ../visual-composer/map.php:1155
+#: ../visual-composer/map.php:1153
 msgid "Custom post type carousel"
 msgstr ""
 
-#: ../visual-composer/map.php:1212 ../visual-composer/map.php:1502
+#: ../visual-composer/map.php:1210 ../visual-composer/map.php:1496
 msgid "Item Width"
 msgstr ""
 
-#: ../visual-composer/map.php:1218 ../visual-composer/map.php:1508
+#: ../visual-composer/map.php:1216 ../visual-composer/map.php:1502
 msgid "Min Slides"
 msgstr ""
 
-#: ../visual-composer/map.php:1224 ../visual-composer/map.php:1514
+#: ../visual-composer/map.php:1222 ../visual-composer/map.php:1508
 msgid "Max Slides"
 msgstr ""
 
-#: ../visual-composer/map.php:1230 ../visual-composer/map.php:1520
+#: ../visual-composer/map.php:1228 ../visual-composer/map.php:1514
 msgid "Auto Play"
 msgstr ""
 
-#: ../visual-composer/map.php:1239
+#: ../visual-composer/map.php:1237
 msgid "Timeout Duration (in milliseconds)"
 msgstr ""
 
-#: ../visual-composer/map.php:1245 ../visual-composer/map.php:1529
+#: ../visual-composer/map.php:1243 ../visual-composer/map.php:1523
 msgid "Display Pager?"
 msgstr ""
 
-#: ../visual-composer/map.php:1254 ../visual-composer/map.php:1538
+#: ../visual-composer/map.php:1252 ../visual-composer/map.php:1532
 msgid "Display Arrows?"
 msgstr ""
 
-#: ../visual-composer/map.php:1309
+#: ../visual-composer/map.php:1305
 msgid "Post Slider"
 msgstr ""
 
-#: ../visual-composer/map.php:1311
+#: ../visual-composer/map.php:1307
 msgid "Custom post type slider"
 msgstr ""
 
-#: ../visual-composer/map.php:1410 ../visual-composer/map.php:1664
+#: ../visual-composer/map.php:1404 ../visual-composer/map.php:1654
 msgid "Animation"
 msgstr ""
 
-#: ../visual-composer/map.php:1413 ../visual-composer/map.php:1667
+#: ../visual-composer/map.php:1407 ../visual-composer/map.php:1657
 msgid "Slide"
 msgstr ""
 
-#: ../visual-composer/map.php:1414 ../visual-composer/map.php:1668
+#: ../visual-composer/map.php:1408 ../visual-composer/map.php:1658
 msgid "Fade"
 msgstr ""
 
-#: ../visual-composer/map.php:1419 ../visual-composer/map.php:1673
+#: ../visual-composer/map.php:1413 ../visual-composer/map.php:1663
 msgid "Slideshow"
 msgstr ""
 
-#: ../visual-composer/map.php:1428 ../visual-composer/map.php:1682
+#: ../visual-composer/map.php:1422 ../visual-composer/map.php:1672
 msgid "Randomize"
 msgstr ""
 
-#: ../visual-composer/map.php:1437 ../visual-composer/map.php:1691
+#: ../visual-composer/map.php:1431 ../visual-composer/map.php:1681
 msgid "Control Nav"
 msgstr ""
 
-#: ../visual-composer/map.php:1446 ../visual-composer/map.php:1700
+#: ../visual-composer/map.php:1440 ../visual-composer/map.php:1690
 msgid "Direction Nav"
 msgstr ""
 
-#: ../visual-composer/map.php:1455 ../visual-composer/map.php:1709
+#: ../visual-composer/map.php:1449 ../visual-composer/map.php:1699
 msgid "Slideshow Speed"
 msgstr ""
 
-#: ../visual-composer/map.php:1461 ../visual-composer/map.php:1715
+#: ../visual-composer/map.php:1455 ../visual-composer/map.php:1705
 msgid "Animation Speed"
 msgstr ""
 
-#: ../visual-composer/map.php:1471
+#: ../visual-composer/map.php:1465
 msgid "Image Carousel"
 msgstr ""
 
-#: ../visual-composer/map.php:1474
+#: ../visual-composer/map.php:1468
 msgid "Custom image carousel"
 msgstr ""
 
-#: ../visual-composer/map.php:1480 ../visual-composer/map.php:1601
+#: ../visual-composer/map.php:1474 ../visual-composer/map.php:1593
 msgid "Attach Images"
 msgstr ""
 
-#: ../visual-composer/map.php:1482 ../visual-composer/map.php:1603
+#: ../visual-composer/map.php:1476 ../visual-composer/map.php:1595
 msgid "Attach images to your post."
 msgstr ""
 
-#: ../visual-composer/map.php:1592
+#: ../visual-composer/map.php:1584
 msgid "Image FlexSlider"
 msgstr ""
 
-#: ../visual-composer/map.php:1594
+#: ../visual-composer/map.php:1586
 msgid "Custom image slider"
 msgstr ""
 
-#: ../visual-composer/map.php:1725 ../visual-composer/map.php:1733
+#: ../visual-composer/map.php:1715 ../visual-composer/map.php:1723
 msgid "Icon"
 msgstr ""
 
-#: ../visual-composer/map.php:1727
+#: ../visual-composer/map.php:1717
 msgid "Font Awesome Icon"
 msgstr ""
 
-#: ../visual-composer/map.php:1740
+#: ../visual-composer/map.php:1730
 msgid "Icon Size"
 msgstr ""
 
-#: ../visual-composer/map.php:1744
+#: ../visual-composer/map.php:1734
 msgid "Extra Large"
 msgstr ""
 
-#: ../visual-composer/map.php:1746
+#: ../visual-composer/map.php:1736
 msgid "Normal"
 msgstr ""
 
-#: ../visual-composer/map.php:1748
+#: ../visual-composer/map.php:1738
 msgid "Tiny"
 msgstr ""
 
-#: ../visual-composer/map.php:1772
+#: ../visual-composer/map.php:1762
 msgid "Icon Color"
 msgstr ""
 
-#: ../visual-composer/map.php:1777
+#: ../visual-composer/map.php:1767
 msgid "Background Color"
 msgstr ""
 
-#: ../visual-composer/map.php:1792
+#: ../visual-composer/map.php:1782
 msgid "URL Title"
 msgstr ""
