@@ -82,7 +82,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Buttons
 /*-----------------------------------------------------------------------------------*/
-.symple-button { font-family: inherit; margin: 5px 5px 5px 0; cursor: pointer; display: inline-block; white-space: nowrap; nowhitespace: afterproperty; text-align: center; outline: none; border: none !important; border-radius: 3px; background: #333; color: #fff; padding: 0.8em 1em; line-height: 1em; text-decoration: none !important; -webkit-appearance: none; }
+.symple-button { font-family: inherit; margin: 5px 5px 5px 0; cursor: pointer; display: inline-block; white-space: nowrap; nowhitespace: afterproperty; text-align: center; outline: none; border: none !important; border-radius: 3px; background: #333; color: #fff !important; padding: 0.8em 1em; line-height: 1em; text-decoration: none !important; -webkit-appearance: none; }
 .symple-button:hover { color: #fff; opacity: 0.8; }
 .symple-shortcodes span.symple-button-inner { border: none; }
 

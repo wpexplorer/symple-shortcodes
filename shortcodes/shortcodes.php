@@ -1470,11 +1470,9 @@ function symple_carousel_shortcode( $atts ) {
 		'filter_content' => $filter_content,
 		'no_found_rows'  => true,
 		'tax_query'      => $tax_query,
-		'meta_query'     => array(
-			array(
-				'key' => '_thumbnail_id'
-			)
-		)
+		'meta_query'     => array( array(
+			'key' => '_thumbnail_id'
+		) )
 	) );
 
 	//Output posts
