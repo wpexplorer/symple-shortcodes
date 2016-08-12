@@ -5,11 +5,11 @@ jQuery(function($){
 	$(document).ready(function(){
 		$('.googlemap').each( function() {
 			
-			var $map_id = $(this).attr('id'),
-			$title = $(this).find('.title').val(),
-			$location = $(this).find('.location').val(),
-			$zoom = parseInt( $(this).find('.zoom').val() ),
-			geocoder, map;
+			var $map_id   = $(this).attr('id'),
+				$title    = $(this).find('.title').val(),
+				$location = $(this).find('.location').val(),
+				$zoom     = parseInt( $(this).find('.zoom').val() ),
+				geocoder, map;
 			
 			var mapOptions = {
 				zoom: $zoom,
@@ -23,8 +23,8 @@ jQuery(function($){
 				if (status == google.maps.GeocoderStatus.OK) {
 				
 					var mapOptions = {
-						zoom: $zoom,
-						mapTypeId: google.maps.MapTypeId.ROADMAP
+						zoom      : $zoom,
+						mapTypeId : google.maps.MapTypeId.ROADMAP
 					};
 					
 					map = new google.maps.Map($('#'+ $map_id + ' .map_canvas')[0], mapOptions);

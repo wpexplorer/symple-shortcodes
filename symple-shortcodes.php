@@ -5,7 +5,7 @@ Plugin URI: http://www.wpexplorer.com/symple-shortcodes
 Description: A free shortcodes plugin with support for the Visual Composer page builder.
 Author: AJ Clarke
 Author URI: http://www.wpexplorer.com
-Version: 2.0.2
+Version: 2.1.0
 License: GNU General Public License version 2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -22,37 +22,58 @@ if ( ! class_exists( 'SympleShortcodes' ) ) {
 		 */
 		function __construct() {
 
+			// Plugin version Constant
+			define( 'SYMPLE_SHORTCODES_VERSION', '1.1.0' );
+
 			// Define path
 			$this->dir_path = plugin_dir_path( __FILE__ );
 
 			// Register de-activation hook
 			register_deactivation_hook( __FILE__, array( $this, 'on_deactivation' ) );
 
-			// Actions
-			add_action( 'admin_head', array( $this, 'add_mce_button' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
+			// Admin only
+			if ( is_admin() ) {
+
+				// MCE button
+				add_action( 'admin_head', array( $this, 'add_mce_button' ) );
+				add_action( 'admin_enqueue_scripts', array( $this, 'mce_css' ) );
+
+				// Auto updates
+				require_once( $this->dir_path .'/inc/updates.php' );
+
+				// Admin panel
+				require_once( $this->dir_path .'/inc/admin.php' );
+
+				// Admin notices
+				add_action( 'admin_init', array( $this, 'admin_notice_init' ) );
+
+				// Add responsive tag to body
+				add_filter( 'body_class', array( $this, 'body_class' ) );
+
+			}
+
+			// Front end only
+			else {
+
+				// Front-end scripts
+				add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
+
+			}
+
+			// Test domain
 			add_action( 'plugins_loaded', array( $this, 'load_text_domain' ) );
-			add_action( 'admin_enqueue_scripts', array( $this, 'mce_css' ) );
 
-			// Auto updates
-			// @todo: Our own updates API coming soon, sorry for the troubles people, but
-			// the wp-updates.com site we were using has gone to shit since it was sold :(
-
-			// Includes (useful functions and classes)
-			require_once( $this->dir_path .'/inc/commons.php' );
+			// Image resizer class
 			require_once( $this->dir_path .'/inc/image-resizer.php' );
 
-			// The actual shortcodes
+			// Common functions
+			require_once( $this->dir_path .'/inc/commons.php' );
+
+			// The actual shortcode functions
 			require_once( $this->dir_path .'/shortcodes/shortcodes.php' );
 
 			// Map shortcodes to the Visual Composer
 			require_once( $this->dir_path .'/visual-composer/map.php' );
-
-			// Admin notices
-			add_action( 'admin_init', array( $this, 'admin_notice_init' ) );
-
-			// Add responsive tag to body
-			add_filter( 'body_class', array( $this, 'body_class' ) );
 
 		}
 
@@ -127,30 +148,55 @@ if ( ! class_exists( 'SympleShortcodes' ) ) {
 		 */
 		function load_scripts() {
 
+			// Get options
+			$options = get_option( 'symple_shortcodes' );
+
 			// Define js directory
 			$js_dir = plugin_dir_url( __FILE__ ) . 'shortcodes/js/';
 
 			// Define CSS directory
 			$css_dir = plugin_dir_url( __FILE__ ) . 'shortcodes/css/';
 
-			// JS
+			// Core jQuery
 			wp_enqueue_script( 'jquery' );
+
+			// Tabs
 			wp_register_script( 'symple_tabs', $js_dir . 'symple_tabs.js', array ( 'jquery', 'jquery-ui-tabs' ), '1.0', true );
+
+			// Toggles
 			wp_register_script( 'symple_toggle', $js_dir . 'symple_toggle.js', 'jquery', '1.0', true );
+
+			// Accordions
 			wp_register_script( 'symple_accordion', $js_dir . 'symple_accordion.js', array ( 'jquery', 'jquery-ui-accordion' ), '1.0', true );
-			wp_register_script( 'symple_googlemap', $js_dir . 'symple_googlemap.js', array( 'jquery' ), '1.0', true);
-			$g_api_key = apply_filters( 'symple_shortcodes_google_map_api_key', null );
+
+			// Google Maps
+			$g_api_key = isset( $options['google_maps_api'] ) ? $options['google_maps_api'] : '';
+			$g_api_key = apply_filters( 'symple_shortcodes_google_map_api_key', $g_api_key );
 			if ( $g_api_key ) {
 				$g_api_key = '?key='. $g_api_key;
 			}
-			wp_register_script( 'symple_googlemap_api', 'https://maps.googleapis.com/maps/api/js'. $g_api_key, array( 'jquery' ), false, true);
+			wp_register_script( 'symple_googlemap_api', 'https://maps.googleapis.com/maps/api/js'. $g_api_key, array( 'jquery' ), false, true );
+
+			wp_register_script( 'symple_googlemap', $js_dir . 'symple_googlemap.js', array( 'jquery', 'symple_googlemap_api' ), '1.0', true );
+
+			// Skillbar
 			wp_register_script( 'symple_skillbar', $js_dir . 'symple_skillbar.js', array ( 'jquery' ), '1.0', true );
+			
+			// Lightbox
 			wp_register_script( 'magnific-popup', $js_dir . 'magnific-popup.min.js', array ( 'jquery' ), '0.9.4', true );
 			wp_register_script( 'symple_lightbox', $js_dir . 'symple_lightbox.js', array ( 'jquery', 'magnific-popup' ), '1.0', true );
+
+			// Carousels
 			wp_register_script( 'touchSwipe', $js_dir . 'touchSwipe.js', array ( 'jquery' ), '6.2.1', true );
 			wp_register_script( 'caroufredsel', $js_dir . 'caroufredsel.js', array ( 'jquery', 'touchSwipe' ), '6.2.1', true );
+
+			// Images Loaded
 			wp_register_script( 'imagesLoaded', $js_dir . 'imagesLoaded.js', array ( 'jquery' ), '', true );
+			
+			// Slider
 			wp_register_script( 'flexslider', $js_dir . 'flexslider.js', array ( 'jquery' ), '2.2.0', true );
+			
+			// Parallax
 			wp_register_script( 'symple_parallax', $js_dir . 'symple_parallax.js', array ( 'jquery' ), '1.0', true );
 			wp_register_script( 'symple_scroll_fade', $js_dir . 'symple_scroll_fade.js', array ( 'jquery' ), '1.0', true );
 
