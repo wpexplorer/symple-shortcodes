@@ -2087,7 +2087,7 @@ function symple_attachments_carousel_shortcode( $atts ) {
 		'post_type'      => 'attachment',
 		'post_parent'    => $post_parent,
 		'post_mime_type' => 'image',
-		'post_status'    => null,
+		'post_status'    => 'inherit',
 		'posts_per_page' => -1,
 		'post__in'       => $post_in,
 	) );
@@ -2115,8 +2115,8 @@ function symple_attachments_carousel_shortcode( $atts ) {
 				$attachment_link	= get_post_meta( $attachment_id, '_wp_attachment_url', true );
 				$attachment_img_url	= wp_get_attachment_url( $attachment_id );
 				$attachment_img		= wp_get_attachment_url( $attachment_id );
-				$attachment_alt		= get_the_title( $attachment_id );
-				$attachment_title	= $attachment->post_title;
+				$attachment_alt		= get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
+				$attachment_title	= get_the_title( $attachment_id );
 				
 				// Load scripts
 				if ( $thumbnail_link == 'lightbox' ) {
