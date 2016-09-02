@@ -137,7 +137,7 @@ if ( ! class_exists( 'Symple_Shortcodes_Updater' ) ) {
 				$obj->new_version = $info->version;
 				$obj->url = $info->url;
 				$obj->package = $info->package;
-				$transient->response[SYMPLE_SHORTCODES_BASENAME] = $obj;
+				$transient->response[$this->base] = $obj;
 			}
 			return $transient;
 		}

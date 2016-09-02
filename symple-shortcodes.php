@@ -23,7 +23,7 @@ if ( ! class_exists( 'SympleShortcodes' ) ) {
 		function __construct() {
 
 			// Plugin version Constant
-			define( 'SYMPLE_SHORTCODES_VERSION', '1.1.0' );
+			define( 'SYMPLE_SHORTCODES_VERSION', '2.1.0' );
 
 			// Define path
 			$this->dir_path = plugin_dir_path( __FILE__ );
