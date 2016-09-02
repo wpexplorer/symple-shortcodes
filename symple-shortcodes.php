@@ -5,7 +5,7 @@ Plugin URI: http://www.wpexplorer.com/symple-shortcodes
 Description: A free shortcodes plugin with support for the Visual Composer page builder.
 Author: AJ Clarke
 Author URI: http://www.wpexplorer.com
-Version: 2.1.0
+Version: 2.1.2
 License: GNU General Public License version 2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -23,7 +23,8 @@ if ( ! class_exists( 'SympleShortcodes' ) ) {
 		function __construct() {
 
 			// Plugin version Constant
-			define( 'SYMPLE_SHORTCODES_VERSION', '2.1.0' );
+			define( 'SYMPLE_SHORTCODES_VERSION', '2.1.2' );
+			define( 'SYMPLE_SHORTCODES_PLUGIN_SLUG', plugin_basename( __FILE__ ) );
 
 			// Define path
 			$this->dir_path = plugin_dir_path( __FILE__ );

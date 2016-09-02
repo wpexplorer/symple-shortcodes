@@ -13,25 +13,22 @@ if ( ! class_exists( 'Symple_Shortcodes_Updater' ) ) {
 
 	class Symple_Shortcodes_Updater {
 		private $api_endpoint;
-		private $plugin_slug;
+		private $slug;
 		private $version;
-		private $base;
+		private $plugin_slug;
 		private $license_key;
 	
 		/**
 		 * Initializes the auto updates class
 		 *
-		 * @param $api_url     string  The URL to the updates API
-		 * @param $plugin_slug  string  Theme slug
-		 * @param $license_key string  License Validation
 		 */
 		public function __construct() {
 
 			// Update vars
 			$this->api_endpoint = 'https://wpexplorer-updates.com/api/v1';
-			$this->plugin_slug  = 'symple-shortcodes';
+			$this->slug  = 'symple-shortcodes';
 			$this->version      = SYMPLE_SHORTCODES_VERSION;
-			$this->base         = plugin_basename( __FILE__ );
+			$this->plugin_slug  = SYMPLE_SHORTCODES_PLUGIN_SLUG;
 			$this->license_key  = ''; // Free
 
 			// Check for updates
@@ -97,7 +94,7 @@ if ( ! class_exists( 'Symple_Shortcodes_Updater' ) ) {
 		 */
 		public function get_license_info() {
 			$info = $this->call_api( 'info', array(
-				'plugin' => $this->plugin_slug,
+				'plugin'  => $this->slug,
 				'license' => urlencode( $this->license_key ),
 			) );
 			return $info;
@@ -133,11 +130,11 @@ if ( ! class_exists( 'Symple_Shortcodes_Updater' ) ) {
 			$info = $this->is_update_available();
 			if ( $info !== false ) {
 				$obj = new stdClass();
-				$obj->slug = $this->plugin_slug .'.php';
-				$obj->new_version = $info->version;
-				$obj->url = $info->url;
-				$obj->package = $info->package;
-				$transient->response[$this->base] = $obj;
+				$obj->slug                               = $this->slug;
+				$obj->new_version                        = $info->version;
+				$obj->url                                = $info->url;
+				$obj->package                            = $info->package;
+				$transient->response[$this->plugin_slug] = $obj;
 			}
 			return $transient;
 		}
