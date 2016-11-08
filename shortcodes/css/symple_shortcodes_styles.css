@@ -487,7 +487,7 @@ a:hover .symple-icon { text-decoration: none; opacity: 0.8; }
 	.symple-shortcodes-responsive .symple-flexslider-wrap .flex-direction-nav .flex-prev { opacity: 1; left: 10px; }
 	.symple-shortcodes-responsive .symple-flexslider-wrap .flex-direction-nav .flex-next { opacity: 1; right: 10px; }
 }
-@media only screen and (max-width: 520px) {
+@media only screen and (max-width: 700px) {
 
 	.symple-shortcodes-responsive .symple-col { width: 100%; }
 

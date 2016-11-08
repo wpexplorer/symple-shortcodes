@@ -5,7 +5,7 @@ Plugin URI: http://www.wpexplorer.com/symple-shortcodes
 Description: A free shortcodes plugin with support for the Visual Composer page builder.
 Author: AJ Clarke
 Author URI: http://www.wpexplorer.com
-Version: 2.1.2
+Version: 2.1.3
 License: GNU General Public License version 2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -23,7 +23,7 @@ if ( ! class_exists( 'SympleShortcodes' ) ) {
 		function __construct() {
 
 			// Plugin version Constant
-			define( 'SYMPLE_SHORTCODES_VERSION', '2.1.2' );
+			define( 'SYMPLE_SHORTCODES_VERSION', '2.1.3' );
 			define( 'SYMPLE_SHORTCODES_PLUGIN_SLUG', plugin_basename( __FILE__ ) );
 
 			// Define path
@@ -48,9 +48,6 @@ if ( ! class_exists( 'SympleShortcodes' ) ) {
 				// Admin notices
 				add_action( 'admin_init', array( $this, 'admin_notice_init' ) );
 
-				// Add responsive tag to body
-				add_filter( 'body_class', array( $this, 'body_class' ) );
-
 			}
 
 			// Front end only
@@ -58,6 +55,9 @@ if ( ! class_exists( 'SympleShortcodes' ) ) {
 
 				// Front-end scripts
 				add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
+
+				// Add responsive tag to body
+				add_filter( 'body_class', array( $this, 'body_class' ) );
 
 			}
 
@@ -289,8 +289,7 @@ if ( ! class_exists( 'SympleShortcodes' ) ) {
 		 */
 		public function body_class( $classes ) {
 			$classes[] = 'symple-shortcodes ';
-			$responsive = apply_filters( 'symple_shortcodes_responsive', true );
-			if ( $responsive ) {
+			if ( apply_filters( 'symple_shortcodes_responsive', true ) ) {
 				$classes[] = 'symple-shortcodes-responsive';
 			}
 			return $classes;
