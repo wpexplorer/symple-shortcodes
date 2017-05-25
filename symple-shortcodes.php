@@ -20,7 +20,7 @@ if ( ! class_exists( 'SympleShortcodes' ) ) {
 		 * @since  2.0.0
 		 * @access public
 		 */
-		function __construct() {
+		public function __construct() {
 
 			// Plugin version Constant
 			define( 'SYMPLE_SHORTCODES_VERSION', '2.1.3' );
